@@ -152,8 +152,7 @@ name: 'Home',
        });
     },
     fetchMessages() {
-      db.collection('chat').orderBy('createdAt').get()
-      .then((querySnapshot) => {
+      db.collection('chat').orderBy('createdAt').onSnapshot((querySnapshot) => {
           const allMessages = [];
           querySnapshot.forEach((doc) => {
               allMessages.push(doc.data());
