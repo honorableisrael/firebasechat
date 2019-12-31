@@ -132,7 +132,6 @@ name: 'Home',
     return{
         message : null,
         messages : [],
-        createdAt: new Date(),
     };
   },
   created() {
@@ -142,7 +141,8 @@ name: 'Home',
     saveToDB() {
     // save to firestore
        db.collection('chat').add({
-           message: this.message,
+          message: this.message,
+          createdAt: new Date(),
        })
        .then((docRef) => {
          console.log(docRef.data);
